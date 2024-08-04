@@ -1,0 +1,97 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<div class="hero-banner-seven">
+    <div class="bg-wrapper position-relative pt-200 pb-20 md-pt-150">
+        <div class="container">
+            <h3>API Documentation</h3>
+            <p class="text-lg pt-35 pe-xxl-5 md-pt-30 lg-mb-10">The ANIMATOR AI API allows you to create and
+                retrieve animated videos by uploading images and driving
+                videos.</p>
+            <h4>&nbsp;&nbsp;&nbsp;&nbsp;How to get started with the ANIMATOR AI API:</h4>
+            <div class="row">
+                <div class="col-sm col-5 border border-4 border-dark rounded-2 p-4 m-4">
+                    <h3 class="btn-fourteen mb-4">POST:</h3>
+                    <h3>Create Media</h3>
+                    <a href="{% url 'api:media-create' %}" class="slogan d-inline-block mt-2 mb-2"><strong class="fw-500">API:</strong> POST Media Create View /api/media/<i class="fas fa-chevron-right"></i></a>
+                    <p><strong>Endpoint:</strong> <code>/api/media/</code></p>
+                    <p><strong>Description:</strong> Uploads an image and a driving video, processes them to create an
+                        animated
+                        video, and returns the URL of the animated video.</p>
+                    <p><strong>Request:</strong></p>
+
+                    <pre>Form Data:
+    {
+        "driving_video": File (required),
+        "input_image": Image (required)
+    }
+                    </pre>
+                    <p><strong>Response:</strong></p>
+                    <pre>
+    201 Created
+    {
+        "id": 1,
+        "driving_video": "http://127.0.0.1:8000/media/driving_videos/your_video.mp4",
+        "input_image": "http://127.0.0.1:8000/media/input_images/your_image.jpg",
+        "output_video": "http://127.0.0.1:8000/media/output_animations/output_1.mp4",
+        "created_at": "2024-08-03T12:34:56Z"
+    }
+            </pre>
+                </div>
+                <div class="col-sm col-5 border border-4 border-dark rounded-2 p-4 m-4">
+                    <h3 class="btn-fourteen mb-4">GET:</h3>
+                    <h3>Get Media List</h3>
+                    <a href="{% url 'api:media-list' %}" class="slogan d-inline-block mt-2 mb-2"><strong class="fw-500">API:</strong> GET Media List View /api/media/list/<i class="fas fa-chevron-right"></i></a>
+                    <p><strong>Endpoint:</strong> <code>/api/media/list</code></p>
+                    <p><strong>Description:</strong> Retrieves a list of all media entries.</p>
+                    <p><strong>Request:</strong></p>
+
+                    <pre>Form Data:
+    {
+        "driving_video": File (required),
+        "input_image": Image (required)
+    }
+                    </pre>
+                    <p><strong>Response:</strong></p>
+                    <pre>
+    200 OK
+[
+    {
+        "id": 1,
+        "driving_video": "http://127.0.0.1:8000/media/driving_videos/your_video.mp4",
+        "input_image": "http://127.0.0.1:8000/media/input_images/your_image.jpg",
+        "output_video": "http://127.0.0.1:8000/media/output_animations/output_1.mp4",
+        "created_at": "2024-08-03T12:34:56Z"
+    },
+    ...
+]
+            </pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 border border-2 rounded-2 mt-100">
+            <div class="p-30">
+                <h3>Create Media:</h3>
+                <h6><strong>Endpoint</strong>: /api/media/</h6>
+                <p><strong>Description</strong>: Upload an image and a driving video to initiate the creation of an animated video. The API processes the input files using a trained AI model implemented with PyTorch. The model uses the driving video to drive the animation of the input image, generating a new animated video. The response includes the URLs for the original files (driving video and input image) and the URL for the resulting animated video. This endpoint leverages advanced AI techniques to produce high-quality animations based on user-provided media</p>
+                <a href="{% url 'api:media-create' %}" class="slogan d-inline-block mt-2 mb-2"><strong class="fw-500">API:</strong> GET Media List View /api/media/<i class="fas fa-chevron-right"></i></a>
+
+            </div>
+        </div>
+
+        <div class="col-12 border border-2 rounded-2 mt-30">
+            <div class="p-30">
+                <h3>List Media:</h3>
+                <h6><strong>Endpoint</strong>: /api/media/list</h6>
+                <p><strong>Description</strong>: Retrieve a list of all media entries stored in the system. Each entry includes the URLs for the driving video, input image, and the generated animated video, along with the timestamp of when the media was created. The list provides an overview of all processed media, allowing you to manage and review previously uploaded files and their associated animations. This endpoint showcases the results of the AI model's processing, implemented using PyTorch, across all media entries</p>
+                <a href="{% url 'api:media-list' %}" class="slogan d-inline-block mt-2 mb-2"><strong class="fw-500">API:</strong> GET Media List View /api/media/list/<i class="fas fa-chevron-right"></i></a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

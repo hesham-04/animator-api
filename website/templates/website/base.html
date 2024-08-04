@@ -1,0 +1,149 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Animator AI">
+    <meta name='og:image' content='{% static "images/assets/ogg.png" %}'>
+    <!-- For IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- For Resposive Device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- For Window Tab Color -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#1d2b40">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#1d2b40">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1d2b40">
+    <title>Animator AI - Create Fun Videos</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="56x56" href="{% static 'favicon.png' %}">
+    <!-- Main style sheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="all">
+    <!-- responsive style sheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" media="all">
+</head>
+
+<body>
+<div class="main-page-wrapper">
+
+    <header class="theme-main-menu sticky-menu theme-menu-six pt-4">
+        <div class="inner-content position-relative">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="logo order-lg-0"><a href="{% url 'website:home' %}" class="d-block"><h3
+                        class="hero-heading fw-bold tx-dark ">Animator AI.</h3></a></div>
+                <div class="right-widget ms-auto ms-lg-0 d-flex align-items-center order-lg-3">
+                    <a href="{% url 'website:docs' %}"
+                       class="start-btn-one fs-18 fw-500 tran3s position-relative d-none d-lg-block">Get Started</a>
+                </div> <!-- /.right-widget -->
+
+                <nav class="navbar navbar-expand-lg order-lg-2">
+                    <button class="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="{% url 'website:docs'%}" role="button"
+                                   data-bs-auto-close="outside" aria-expanded="false">Documentation.</a>
+
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link " href="{% url 'website:about-us' %}" role="button"
+                                   data-bs-auto-close="outside" aria-expanded="false">About Us.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            </li>
+                        </ul>
+                        <!-- Mobile Content -->
+                        <div class="mobile-content d-block d-lg-none">
+                            <div class="d-flex flex-column align-items-center justify-content-center mt-70">
+                                <a href="contact-us-v3.html"
+                                   class="start-btn-one fs-18 fw-500 tran3s position-relative">Get Started</a>
+                            </div>
+                        </div> <!-- /.mobile-content -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!--
+    =============================================
+        Theme Hero Banner
+    ==============================================
+    -->
+
+    {% block content %}
+    {% endblock %}
+    <div class="footer-style-seven p-30 theme-basic-footer">
+        <div class="bg-wrapper position-relative">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-2 footer-intro mb-40">
+                        <a href="{% url 'website:home' %}" class="d-block"><h3
+                                class="hero-heading fw-bold tx-dark ">Animator AI.</h3></a>
+                    </div>
+                    <div>
+                        <p>Upload an image and a driving video to initiate the creation of an animated video. The API processes the input files using a trained AI model implemented with PyTorch. The model uses the driving video to drive the animation of the input image, generating a new animated video. The response includes the URLs for the original files (driving video and input image) and the URL for the resulting animated video. This endpoint leverages advanced AI techniques to produce high-quality animations based on user-provided media </p>
+
+                    </div>
+
+                </div>
+            </div> <!-- /.container -->
+        </div> <!-- /.bg-wrapper -->
+
+        <div class="bottom-footer lg-pb-20 position-relative">
+            <div class="container"
+            >
+                <div class="row">
+                    <div class="col-lg-4 order-lg-0 mt-15">
+                        <ul class="d-flex justify-content-center justify-content-lg-start footer-nav style-none">
+                            <li><a href="faq.html">Privacy &amp; Terms.</a></li>
+                            <li><a href="contact-us-v3.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 order-lg-2 mt-15">
+                        <ul class="d-flex justify-content-center justify-content-lg-end social-icon style-none">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 order-lg-1 mt-15">
+                        <p class="copyright text-center m0">Copyright @2024 exarth inc.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- /.bottom-footer -->
+    </div> <!-- /.footer-style-seven -->
+
+
+    <!-- Optional JavaScript _____________________________  -->
+
+    <!-- jQuery first, then Bootstrap JS -->
+    <!-- jQuery -->
+    <script src="{% static 'vendor/jquery.min.js' %}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- WOW js -->
+    <script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+    <!-- Fancybox -->
+    <script src="{% static 'vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+    <!-- Lazy -->
+    <script src="{% static 'vendor/jquery.lazy.min.js' %}"></script>
+    <!-- js Counter -->
+    <script src="{% static 'vendor/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery.waypoints.min.js' %}"></script>
+
+    <!-- Theme js -->
+    <script src="{% static 'js/theme.js' %}"></script>
+</div> <!-- /.main-page-wrapper -->
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+<div class="hero-banner-seven">
+    <div class="bg-wrapper position-relative pt-200 pb-20 md-pt-150">
+        <div class="container">
+            <h3>About Us</h3>
+            <p>Welcome to ANIMATOR AI, where we bring your images to life using cutting-edge technology. Our platform leverages advanced AI techniques to transform static images into dynamic animations driven by videos.</p>
+            <div class="d-flex justify-content-center">
+                        <div style="width:350px;" class="px-4 mx-4 ">
+                            <img style="width:300px; height:300px" src="{% static 'logo-red-1000.svg' %}" alt="">
+                        </div>
+                        <div class="p-4 m-4">
+                            <h5 class="btn btn-danger"><a target="_blank" href="https://exarth.com/">EXARTH.COM</a></h5>
+                            <p><strong>Our Commitment:</strong> Our belief in creating tangible value for our customers makes us think that EXARTH is different. Our attention to detail and quality is unparalleled in the industry. We are more than just a resource provider. We value the success of our customers, just as we share the development risks ourselves, so that they can boldly adopt new technologies.</p>
+                        </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm col-5 border border-4 border-dark rounded-2 p-4 m-4">
+                    <h3 class="btn-fourteen mb-4">Our Technology</h3>
+                    <h3>AI-Powered Animation</h3>
+                    <p><strong>Technology:</strong> ANIMATOR AI utilizes a sophisticated AI model implemented with PyTorch to drive the animation of your images. Our AI model processes the input image and driving video to generate high-quality animated videos, ensuring exceptional visual effects and realism.</p>
+                    <p><strong>How It Works:</strong> By combining the latest advancements in AI and computer vision, our system seamlessly animates images based on the movement and style of the provided video. This results in stunning animations that bring your static visuals to life.</p>
+                    <h3>Dedicated Experts</h3>
+                    <p><strong>Who We Are:</strong> We are a team of passionate AI researchers and developers committed to pushing the boundaries of visual technology. Our expertise in machine learning and AI enables us to create innovative solutions that redefine the possibilities of animation.</p>
+                    <p><strong>Our Commitment:</strong> At ANIMATOR AI, we are dedicated to delivering exceptional results and providing an outstanding user experience. We continuously strive to enhance our technology and ensure that our animations exceed your expectations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

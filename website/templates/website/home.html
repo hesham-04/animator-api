@@ -1,0 +1,36 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+<div class="hero-banner-seven">
+    <div class="bg-wrapper position-relative pt-200 pb-20 md-pt-150">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7 wow fadeInLeft">
+                    <h1 class="hero-heading fw-bold tx-dark mt-25">Create <span
+                            class="position-relative ms-3 d-inline-block">fun<img
+                            src="{% static 'images/shape/shape_95.svg' %}" alt=""></span>videos by uploading images and
+                        driving videos.</h1>
+                    <p class="text-lg mb-70 pt-35 pe-xxl-5 md-pt-30 lg-mb-40">A free video maker that lets you create
+                        videos in minutes.</p>
+                    <a href="{% url 'website:about-us' %}" class="btn-fourteen fw-500 tran3s">Know More About Us . . .</a>
+                </div>
+
+                <div class="col-lg-6 col-md-7 wow fadeInLeft ml-10">
+                    <div class="video-holder border border-4 border-dark rounded-2">
+                        <video autoplay loop muted><source src="{% static 'n1.mp4' %}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /.container -->
+    </div>
+</div> <!-- /.hero-banner-seven -->
+
+
+<button class="scroll-top">
+    <i class="bi bi-arrow-up-short"></i>
+</button>
+{% endblock %}
+

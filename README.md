@@ -5,11 +5,11 @@
 </p>
 <hr>
 
-# Media AI Processing API
+# Animator AI
 
 ## Overview
 
-The **Media AI Processing API** is a Django-based application that allows users to upload media files (such as videos and images) and process them using AI models. The API takes an input image and a driving video, processes them to generate an animated output video, and returns a link to the generated video.
+The **Animator AI** is a Django-based application that allows users to upload media files (such as videos and images) and process them using AI models. The API takes an input image and a driving video, processes them to generate an animated output video, and returns a link to the generated video.
 
 ## Features
 

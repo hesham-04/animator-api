@@ -11,11 +11,10 @@ from core.settings import DOMAIN
 class MediaCreateView(generics.CreateAPIView):
     queryset = Media.objects.all()
     serializer_class = MediaSerializer
-    output_data = []
 
-    def perform_create(self, serializer):
-        media = serializer.save()
-
+    def create(self, request, *args, **kwargs):
+        response = super().create(request, *args, **kwargs)
+        media = self.get_queryset().get(id=response.data['id'])
         driving_video_path = media.driving_video.path
         input_image_path = media.input_image.path
         output_path = f'media/output_animations/output_{media.id}'
@@ -24,19 +23,11 @@ class MediaCreateView(generics.CreateAPIView):
         wfp_url = f"{DOMAIN}/{wfp}"
         wfp_concat_url = f"{DOMAIN}/{wfp_concat}"
 
-        admin_path = wfp.replace('media/', '', 1) # the admin path needs to be modified, removing the 'media/' from the start
+        admin_path = wfp.replace('media/', '', 1)  # The admin path needs to be modified, removing the 'media/'
 
-        self.output_data.append(wfp_url)
-        self.output_data.append(wfp_concat_url)
         media.output_video = admin_path
         media.save()
-
-    def create(self, request, *args, **kwargs):
-        response = super().create(request, *args, **kwargs)
-        media = self.get_queryset().get(id=response.data['id'])
-        output_video_url = media.output_video.url
-        response.data['output_video'] = self.output_data
-
+        response.data['output_video'] = wfp_url
         return response
 
 

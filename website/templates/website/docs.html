@@ -4,9 +4,7 @@
     <div class="bg-wrapper position-relative pt-200 pb-20 md-pt-150">
         <div class="container">
             <h3>API Documentation</h3>
-            <p class="text-lg pt-35 pe-xxl-5 md-pt-30 lg-mb-10">The ANIMATOR AI API allows you to create and
-                retrieve animated videos by uploading images and driving
-                videos.</p>
+            <p class="text pt-35 pe-xxl-5 md-pt-30 lg-mb-10">Read the documentation <b><code> PROPERLY </code></b>documentation is crucial for understanding and effectively utilizing our <b><code> Our API </code></b>. It provides detailed information about the API endpoints, request and response formats, authentication methods, and error handling. Properly reading and comprehending the documentation ensures that you can integrate and use the <b><code> API correctly</code></b>, avoiding common pitfalls and maximizing the benefits of the provided functionalities. Your attention to detail here will save time, reduce errors, and lead to a more successful implementation.</p>
             <h4>&nbsp;&nbsp;&nbsp;&nbsp;How to get started with the ANIMATOR AI API:</h4>
             <div class="row">
                 <div class="col-sm col-5 border border-4 border-dark rounded-2 p-4 m-4">
@@ -29,11 +27,14 @@
                     <pre>
     201 Created
     {
-        "id": 1,
-        "driving_video": "http://127.0.0.1:8000/media/driving_videos/your_video.mp4",
-        "input_image": "http://127.0.0.1:8000/media/input_images/your_image.jpg",
-        "output_video": "http://127.0.0.1:8000/media/output_animations/output_1.mp4",
-        "created_at": "2024-08-03T12:34:56Z"
+        "id": 49,
+        "driving_video": "http://127.0.0.1:8000/media/driving_videos/d3.mp4",
+        "input_image": "http://127.0.0.1:8000/media/input_images/heshammm_8LYuP7e.jpg",
+        "created_at": "2024-08-05T08:36:42.104040Z",
+        "output_video": [
+            "http://localhost:8000/media/output_animations/output_49\\heshammm_8LYuP7e--d3.mp4",
+            "http://localhost:8000/media/output_animations/output_49\\heshammm_8LYuP7e--d3_concat.mp4"
+        ]
     }
             </pre>
                 </div>
@@ -78,6 +79,30 @@
                 <h3>Create Media:</h3>
                 <h6><strong>Endpoint</strong>: /api/media/</h6>
                 <p><strong>Description</strong>: Upload an image and a driving video to initiate the creation of an animated video. The API processes the input files using a trained AI model implemented with PyTorch. The model uses the driving video to drive the animation of the input image, generating a new animated video. The response includes the URLs for the original files (driving video and input image) and the URL for the resulting animated video. This endpoint leverages advanced AI techniques to produce high-quality animations based on user-provided media</p>
+                <p>Your <strong> POST </strong> Request should contain:</p>
+                <p>Video <strong> Format: </strong><code>(.mp4 REQUIRED)</code></p>
+                <p>Image <strong> Format: </strong><code>(.jpg REQUIRED)</code></p>
+                        <pre><strong>Form Data:</strong>
+            {
+                "driving_video": File (required),
+                "input_image": Image (required)
+            }
+                            </pre>
+                <p>Your <strong> Response </strong> </p>
+
+
+                201 Created
+                <pre>
+    {
+        "id": 49,
+        "driving_video": "http://127.0.0.1:8000/media/driving_videos/d3.mp4",
+        "input_image": "http://127.0.0.1:8000/media/input_images/heshammm_8LYuP7e.jpg",
+        "created_at": "2024-08-05T08:36:42.104040Z",
+        "output_video": [
+            "http://localhost:8000/media/output_animations/output_49\\heshammm_8LYuP7e--d3.mp4",
+            "http://localhost:8000/media/output_animations/output_49\\heshammm_8LYuP7e--d3_concat.mp4"
+        ]
+    }</pre>
                 <a href="{% url 'api:media-create' %}" class="slogan d-inline-block mt-2 mb-2"><strong class="fw-500">API:</strong> GET Media List View /api/media/<i class="fas fa-chevron-right"></i></a>
 
             </div>
